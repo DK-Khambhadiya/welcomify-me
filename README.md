@@ -1,4 +1,5 @@
 # Welcome New Contributors
+
 Use this action to welcome new contributors into your community. This action posts a welcome message whenever a new contributor opens his/her first issue or PR in your repository.
 
 Additionally, you can also create your own bot account and use it to post the welcome messages instead of using the default `github-actions` bot.
@@ -25,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Greet the contributor'
-        uses: garg3133/welcome-new-contributors@v1.2
+        uses: DK-Khambhadiya/welcomify-me@v0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: 'Hello there, thanks for opening your first issue. We welcome you to the community!'
@@ -35,11 +36,13 @@ jobs:
 ![github-actions-bot](assets/github-actions-bot.png)
 
 #### Sample usage while using your own bot to post the welcome messages:
-* Create a new GitHub account to be used as the bot.
-* Add that GitHub account as a collaborator on your repository (so that it has permissions to write on your repository).
-* Go to `Settings > Developer settings > Personal access tokens` and create a new token for this action so that this action can use your bot account to comment on issue/PRs).
-* Go to your repository in which you want to use this action, open `Settings > Secrets > New repository secret` and add `BOT_ACCESS_TOKEN` as name and the token you copied in the above step as value.
-* Now, create a new workflow file (`workflowName.yml`) in `.github/workflows` directory of your repository and add the following code (with required changes in `issue-message` and `pr-message`)
+
+-   Create a new GitHub account to be used as the bot.
+-   Add that GitHub account as a collaborator on your repository (so that it has permissions to write on your repository).
+-   Go to `Settings > Developer settings > Personal access tokens` and create a new token for this action so that this action can use your bot account to comment on issue/PRs).
+-   Go to your repository in which you want to use this action, open `Settings > Secrets > New repository secret` and add `BOT_ACCESS_TOKEN` as name and the token you copied in the above step as value.
+-   Now, create a new workflow file (`workflowName.yml`) in `.github/workflows` directory of your repository and add the following code (with required changes in `issue-message` and `pr-message`)
+
 ```
 name: 'Welcome New Contributors'
 
@@ -54,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Greet the contributor'
-        uses: garg3133/welcome-new-contributors@v1.2
+        uses: DK-Khambhadiya/welcomify-me@v0.1
         with:
           token: ${{ secrets.BOT_ACCESS_TOKEN }}
           is-oauth-token: true
@@ -62,10 +65,10 @@ jobs:
           pr-message: 'Hello there, thanks for opening your first Pull Request. Someone will review it soon.'
 ```
 
-![Jagrati-Bot](assets/Jagrati-Bot.png)
-
 ### Want to tag the contributor in the message?
+
 Use `@contributor_name` anywhere in the message and it will be automatically replaced by the contributor's username.
 
 # License
-The scripts and documentation in this project are released under the [MIT License](https://github.com/garg3133/welcome-new-contributors/blob/main/LICENSE)
+
+The scripts and documentation in this project are released under the [MIT License](https://github.com/DK-Khambhadiya/welcomify-me/blob/main/LICENSE)
